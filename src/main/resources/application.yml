@@ -1,0 +1,30 @@
+facebook:
+    client:
+      clientId: 1827218750854999
+      clientSecret: b8a49e6f27ec6be1e46611394c7953aa
+      accessTokenUri: https://graph.facebook.com/oauth/access_token
+      userAuthorizationUri: https://www.facebook.com/dialog/oauth
+      tokenName: oauth_token
+      authenticationScheme: query
+      clientAuthenticationScheme: form
+    resource:
+      userInfoUri: https://graph.facebook.com/me
+github:
+  client:
+    clientId: 3be4969198d0226f3972
+    clientSecret: c26effa0d4cd5eb6dbf7f4ca547f193521e429c8
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+
+security:
+    oauth2:
+        client:
+          client-id: acme
+          client-secret: acmesecret
+          scope: read,write
+          auto-approve-scopes: '.*'
