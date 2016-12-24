@@ -20,6 +20,13 @@ github:
     clientAuthenticationScheme: form
   resource:
     userInfoUri: https://api.github.com/user
+diskisso:
+  client:
+    resourceId : secsimple
+    clientId: 0ddsa565dsa87787IuJ6NVIBDKCh4cBdslds65da
+    clientSecret: 04cIhSjZj0
+    endPointUrl: http://localhost:10000/oauth/check_token/
+
 
 security:
     oauth2:

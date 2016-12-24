@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticat
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -31,7 +32,6 @@ import java.util.List;
 @SpringBootApplication
 @EnableOAuth2Client
 @RestController
-@EnableAuthorizationServer
 public class SecsimpleApplication extends WebSecurityConfigurerAdapter {
 
 	@SuppressWarnings("SpringJavaAutowiringInspection")
@@ -43,6 +43,7 @@ public class SecsimpleApplication extends WebSecurityConfigurerAdapter {
 		List<Filter> filters =new ArrayList<>();
 		filters.add(ssoFilter(facebook(),"/login/facebook"));
 		filters.add(ssoFilter(github(),"/login/github"));
+		filters.add(ssoFilter(diski(),"/login/diskisso"));
 		filter.setFilters(filters);
 		return filter;
 	}
@@ -65,6 +66,12 @@ public class SecsimpleApplication extends WebSecurityConfigurerAdapter {
 	@Bean
 	@ConfigurationProperties("facebook")
 	public ClientResources facebook() {
+		return new ClientResources();
+	}
+
+	@Bean
+	@ConfigurationProperties("diskisso")
+	public ClientResources diski() {
 		return new ClientResources();
 	}
 
